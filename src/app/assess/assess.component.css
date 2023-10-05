@@ -1,0 +1,96 @@
+/* CSS đã tách thành tệp riêng */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid rgb(12, 4, 121);
+    border-radius: 10px;
+    height: auto;
+}
+
+.body {
+    max-width: 1000px;
+    margin: 20px auto 50px;
+}
+
+h2 {
+    color: rgb(8, 98, 233);
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.form {
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/* Sử dụng media query để thiết lập lớp .body khi kích thước màn hình dưới 1000px */
+@media (max-width: 1000px) {
+    .body {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+.info {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h3 {
+    text-align: center;
+    margin-top: 0;
+    font-weight: bold;
+}
+
+p {
+    margin-left: 20%;
+}
+
+.bold {
+    font-weight: bold;
+    color: black;
+    margin-top: 10px;
+}
+
+.custom-button {
+    background-color: #007BFF;
+    margin-top: 10px;
+    text-align: right;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.custom-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.button {
+    text-align: right;
+    margin-right: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+/* Tùy chỉnh dropdown menu */
+.dropdown-menu {
+    background-color: #e0f2fe; /* Màu nền xanh dương nhạt */
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    /* background-color: aqua; */
+}    

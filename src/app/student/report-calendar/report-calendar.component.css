@@ -1,0 +1,129 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 10px;
+    margin-top: 75px;
+}
+
+.container {
+    max-width: 100%;
+    /* Thay đổi giá trị này để làm cho bảng thông tin hiển thị rộng hơn */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    /* color: #1641cd; */
+    color: rgb(243, 162, 12);
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-top: 20px;
+}
+
+input[type="text"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: rgb(247, 183, 65);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    /* Thêm hiệu ứng chuyển đổi màu nền */
+    border-radius: 10px;
+    display: flex;
+    /* margin-top: 15px; */
+    /* margin-bottom: 15px; */
+}
+
+.button_tim {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.button_register {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* Đảm bảo nút chiếm toàn bộ chiều ngang của ô */
+    height: 100%;
+    /* Đảm bảo nút chiếm toàn bộ chiều cao của ô */
+}
+
+button:hover {
+    background-color: #d48207;
+}
+
+.time {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th {
+    background-color: rgb(247, 183, 65);
+    color: #fff;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+
+.report_calendar {
+    width: 40%;
+    margin-left: 30%;
+    /* margin-top: 60px; */
+    border: 1px solid #ccc;
+    padding: 20px;
+    /*border-radius: 10px 10px 10px 10px;*/
+    /* Bán kính cho các góc: trên bên trái, trên bên phải, dưới bên trái, dưới bên phải */
+    border-radius: 10px;
+}
+
+@media (max-width: 960px) {
+    .topic {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+h2,
+p {
+    margin-top: 10px;
+    text-align: center;
+    /* color: #0056b3; */
+
+    color: rgb(243, 162, 12);
+    font-weight: bold;
+}
