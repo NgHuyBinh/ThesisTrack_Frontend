@@ -3,20 +3,21 @@ body {
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-    margin-top: 85px;
     margin-bottom: 20px;
     height: auto;
-    min-height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .container {
     max-width: 100%;
-    /* Thay đổi giá trị này để làm cho bảng thông tin hiển thị rộng hơn */
     margin: 0 auto;
     padding: 20px;
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    margin: 0 100px;
 }
 
 h1 {
@@ -42,20 +43,22 @@ select {
     border-radius: 5px;
 }
 
+.top {
+    min-height: 200px;
+    background-color: #F4F4F4;
+}
+
 button {
-    /* background-color: #007bff; */
     background-color: rgb(247, 183, 65);
     color: #fff;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
     transition: background-color 0.3s ease-in-out;
-    /* Thêm hiệu ứng chuyển đổi màu nền */
     border-radius: 10px;
 }
 
 button:hover {
-    /* background-color: #0056b3; */
     background-color: #d48207;
 }
 
@@ -79,26 +82,14 @@ tr:nth-child(even) {
 
 th {
     background-color: rgb(247, 183, 65);
-    /* background-color: yellow; */
     color: #fff;
     text-align: center;
-}
-
-.register_topic {
-    width: 40%;
-    margin-left: 30%;
-    /* margin-top: 60   px; */
-    border: 1px solid #ccc;
-    padding: 20px;
-    /*border-radius: 10px 10px 10px 10px;*/
-    /* Bán kính cho các góc: trên bên trái, trên bên phải, dưới bên trái, dưới bên phải */
-    border-radius: 10px;
 }
 
 @media (max-width: 960px) {
     .topic {
         width: 100%;
-        margin-left: 0; 
+        margin-left: 0;
     }
 }
 
@@ -117,4 +108,72 @@ p {
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+}
+
+
+.header {
+    background-color: rgb(247, 183, 65);
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+}
+
+table {
+    width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+    border: none;
+}
+
+th,
+td {
+    padding: 10px;
+}
+
+.info {
+    float: left;
+    width: calc(50% - 100px);
+    max-width: 700px;
+    margin-left: 180px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-sizing: border-box;
+    order: 1;
+    border: 1px solid #ccc;
+}
+
+.register_topic {
+    float: right;
+    width: calc(50% - 100px);
+    max-width: 700px;
+    margin-right: 180px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.info,
+.register_topic {
+    flex: 1;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+
+@media (max-width: 1000px) {
+    .container {
+        flex-direction: column;
+        margin: 0;
+    }
+
+    .info,
+    .register_topic {
+        margin: 20px 0;
+        width: 100%;
+    }
 }

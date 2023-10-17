@@ -2,20 +2,82 @@
 <!-- đăng ký đề tài -->
 
 <body>
-    <div class="register_topic">
-        <div class="semester">
-            <label for="">Giảng viên hướng dẫn: </label>
-            <select name="" id="">
-                <option value="1">TS Thái Minh Tuấn</option>
-                <option value="2">ThS Trần Minh Tân</option>
-            </select>
-            <label for="">Đề tài: </label>
-            <input type="text" class="custom-input">
-            <!-- <label for=""></label> -->
-            <button>Gửi</button>
+    <div>
+        <div class="top"></div>
 
+        <div class="info">
+            <div class="header">
+                <h3 style="font-weight: bold">
+                    Thông tin sinh viên
+                </h3>
+            </div>
+            <table style="background-color: white" *ngIf="student">
+                <tr>
+                    <td class="title">Mã số sinh viên:</td>
+                    <td>{{ student.numberStudent }}</td>
+                </tr>
+                <tr>
+                    <td class="title">Tên:</td>
+                    <td>{{ student.name }}</td>
+                </tr>
+                <tr>
+                    <td class="title">Ngày sinh:</td>
+                    <td>{{ student.birthday }}</td>
+                </tr>
+                <tr>
+                    <td class="title">Giới tính:</td>
+                    <td>{{ student.gender === 1 ? 'Nam' : 'Nữ' }}</td>
+                </tr>
+                <tr>
+                    <td class="title">Lớp học:</td>
+                    <td>{{ student.classroom }}</td>
+                </tr>
+                <tr>
+                    <td class="title">Ngành:</td>
+                    <td>{{ student.major }}</td>
+                </tr>
+            </table>
         </div>
-    </div>
 
+        <!-- Sử dụng form-> formGroup -> có dữ liệu -> onSubmit -->
+       
+        <div class="register_topic">
+            <form [formGroup]="form">
+              <div class="semester">
+                <div *ngIf="teacher">
+                  <label for="toggleLabel">Giảng viên hướng dẫn</label>
+                  <input type="text" [value]="teacher.name" disabled 
+                  >
+                  
+                </div>
+                <div class="label-toggle" >
+                  <label for="toggleLabel">Click vào đây nếu muốn tự đề xuất đề tài </label>
+                  <input type="checkbox" 
+                  (click)="changeShow()"
+                  >
+                  
+                </div>
+                <div *ngIf="showLabels; else data2">
+                  <label for="customTopic">Đề tài đề xuất</label>
+                  <input type="text" class="custom-input" 
+                  id="topicName"
+                  name="topicName" formControlName="topicName" >
+                </div>
+                <ng-template #data2>
+                  <div>
+                    <label for="topicSelect">Đề tài mẫu của giảng viên:</label>
+                    <select name="topicSelect" id="topicSelect" formControlName="topic">
+                      <option *ngFor="let topic of listTopic" [value]="topic.id">{{ topic.name }}</option>
+                    </select>
+                  </div>
+                </ng-template>
+                <button (click)="registerTopic()">Gửi</button>
+              </div>
+            </form>
+          </div>
+          
+          
+
+    </div>
 </body>
 <app-footer></app-footer>

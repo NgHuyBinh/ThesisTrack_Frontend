@@ -51,13 +51,13 @@ export class AuthService {
           if (response.accessToken) {
             //Lưu trữ user nếu cần dùng
             this.setUsername(auth.getUsername());
-           
+            console.log(this.setUsername(auth.getUsername()))
             // lưu trữ token
             localStorage.setItem('accessToken', response.accessToken);
+
             //Kiểm duyệt vai trò
             console.log( this.getRoles(auth.getUsername()));
             this.getRoles(auth.getUsername()).subscribe((roles) => {
-            
               if (roles.includes('STUDENT')) {
                 console.log(roles);
                 this.router.navigate(['/home']);

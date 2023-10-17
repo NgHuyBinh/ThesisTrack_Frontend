@@ -1,20 +1,26 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { Topic } from 'src/app/Models/topic/topic';
 import { AppConfig } from 'src/app/config/AppConfig';
-import { HttpClient } from '@angular/common/http';
+
 import { Observable } from 'rxjs';
-import { Room } from 'src/app/Models/room/room';
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
-export class RoomService {
+export class TopicService {
+
   constructor(private http: HttpClient, private router: Router) {}
-  listQuantity: number[] = [];
+
   //lấy full đường dẫn
   private getFullUrl(endpoint: string): string {
+    console.log(AppConfig.baseUrl)
     return `${AppConfig.baseUrl}/${endpoint}`;
   }
-  getAllRoomByRoomType_Id(id: number): Observable<Room[]> {
-    return this.http.get<Room[]>(this.getFullUrl(`api/v1/room/${id}`));
+  
+  getAllTopic(teacherId: number): Observable<Topic[]>{
+    return this.http.get<Topic[]>(
+      this.getFullUrl(`api/v1/topics/teacher/${teacherId}`)
+    );
   }
 }
