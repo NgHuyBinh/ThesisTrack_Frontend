@@ -1,0 +1,133 @@
+<app-header></app-header>
+<!-- đăng ký đề tài -->
+
+<body>
+    <div class=topp>
+        <!-- <div class="top"></div> -->
+
+        <div class="info">
+            <div class="header">
+                <h3 style="font-weight: bold">
+                    Thông tin sinh viên
+                </h3>
+            </div>
+            <table style="background-color: white" *ngIf="student">
+                <tr>
+                    <td class="title">Mã số sinh viên:</td>
+                    <td>{{ student.numberStudent }}</td>
+                </tr>
+                <tr>
+                    <td class="title">Tên:</td>
+                    <td>{{ student.name }}</td>
+                </tr>
+                <tr>
+                    <td class="title">Ngày sinh:</td>
+                    <td>{{ student.birthday }}</td>
+                </tr>
+                <tr>
+                    <td class="title">Giới tính:</td>
+                    <td>{{ student.gender === 1 ? 'Nam' : 'Nữ' }}</td>
+                </tr>
+                <tr>
+                    <td class="title">Lớp học:</td>
+                    <td>{{ student.classroom }}</td>
+                </tr>
+                <tr>
+                    <td class="title">Ngành:</td>
+                    <td>{{ student.major }}</td>
+                </tr>
+                <tr>
+                    <td>Giảng viên hướng dẫn: </td>
+                    <td>.....</td>
+                </tr>
+                <tr>
+                    <td>Đề tài: </td>
+                    <td>...</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Sử dụng form-> formGroup -> có dữ liệu -> onSubmit -->
+
+        <div class="register_topic">
+            <form [formGroup]="form">
+                <div class="semester">
+                    <div *ngIf="teacher">
+                        <label for="toggleLabel">Giảng viên hướng dẫn</label>
+                        <input type="text" [value]="teacher.name" disabled>
+
+                    </div>
+                    <div class="label-toggle">
+                        <label for="toggleLabel">Click vào đây nếu muốn tự đề xuất đề tài </label>
+                        <input type="checkbox" (click)="changeShow()">
+
+                    </div>
+                    <div *ngIf="showLabels; else data2">
+                        <label for="customTopic">Đề tài đề xuất</label>
+                        <input type="text" class="custom-input" id="topicName" name="topicName"
+                            formControlName="topicName">
+                    </div>
+                    <ng-template #data2>
+                        <div>
+                            <label for="topicSelect">Đề tài mẫu của giảng viên:</label>
+                            <select name="topicSelect" id="topicSelect" formControlName="topic">
+                                <option *ngFor="let topic of listTopic" [value]="topic.id">{{ topic.name }}</option>
+                            </select>
+                        </div>
+                    </ng-template>
+                    <button (click)="registerTopic()">Gửi</button>
+                </div>
+            </form>
+        </div>
+
+
+
+    </div>
+
+    <div>
+        <div class="report_calendar">
+            <h1>Bảng đề tài mẫu của các giảng viên</h1>
+            <h5>Năm học: | Học kỳ: </h5>
+            <span>_______________</span>
+            <!-- <section class="custom">
+              <label for="">
+                  <h4>Tuần</h4>
+              </label>
+              <input type="text" class="custom-input">
+          </section> -->
+            <table>
+                <tr>
+                    <th>STT</th>
+                    <th>Mã giảng viên</th>
+                    <th>Họ tên giảng viên</th>
+                    <th>Số lượng nhận sinh viên</th>
+                    <th>Đề tài mẫu</th>
+                    <!-- <th></th> -->
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>T12345</td>
+                    <td>TS. Thái Minh Tuấn</td>
+                    <td>20</td>
+                    <td>sdchsdh</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>T12345</td>
+                    <td>TS. Thái Minh Tuấn</td>
+                    <td>20</td>
+                    <td>sdchsdh</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>T12345</td>
+                    <td>TS. Thái Minh Tuấn</td>
+                    <td>20</td>
+                    <td>sdchsdh</td>
+                </tr>
+                <!-- Thêm dữ liệu cho các hàng khác của bảng tại đây -->
+            </table>
+        </div>
+    </div>
+</body>
+<app-footer></app-footer>

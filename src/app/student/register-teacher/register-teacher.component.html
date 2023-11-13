@@ -1,0 +1,128 @@
+<app-header></app-header>
+<!-- đăng ký đề tài -->
+
+<body>
+    <div class=topp>
+        <!-- <div class="top"></div> -->
+
+        <div class="info">
+            <div class="header">
+                <h3 style="font-weight: bold">
+                    Thông tin sinh viên
+                </h3>
+            </div>
+            <table style="background-color: white" *ngIf="student">
+                <tr>
+                    <td class="title">Mã số sinh viên:</td>
+                    <td>{{ student.numberStudent }}</td>
+                </tr>
+                <tr>
+                    <td class="title">Tên:</td>
+                    <td>{{ student.name }}</td>
+                </tr>
+                <tr>
+                    <td class="title">Ngày sinh:</td>
+                    <td>{{ student.birthday }}</td>
+                </tr>
+                <tr>
+                    <td class="title">Giới tính:</td>
+                    <td>{{ student.gender === 1 ? 'Nam' : 'Nữ' }}</td>
+                </tr>
+                <tr>
+                    <td class="title">Lớp học:</td>
+                    <td>{{ student.classroom }}</td>
+                </tr>
+                <tr>
+                    <td class="title">Ngành:</td>
+                    <td>{{ student.major }}</td>
+                </tr>
+                <tr>
+                    <td>Giảng viên hướng dẫn: </td>
+                    <td>.....</td>
+                </tr>
+                <tr>
+                    <td>Đề tài: </td>
+                    <td>...</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Sử dụng form-> formGroup -> có dữ liệu -> onSubmit -->
+
+        <div class="register_topic">
+            <form >
+                <h4>Đăng ký giảng viên hướng dẫn</h4>
+                <div *ngIf="semester">
+                    <label for="">Học kỳ {{semester.semester}}, năm học: {{semester.schoolYear}}</label>
+                </div>
+                <div class="semester">
+                    <div *ngIf="student">
+                        <label for="toggleLabel">Chuyên ngành</label>
+                        <input type="text" [value]="student.major" disabled>
+                    </div>
+                    <div>
+                        <label for="teacherSelect">Chọn giảng viên hướng dẫn</label>
+                        <select name="teacherSelect" id="teacherSelect" [(ngModel)]="teacherId">
+                            <!-- <option value="" disabled selected hidden>Chọn giảng viên</option> -->
+                            <option *ngFor="let teacher of teachers" [value]="teacher.id">{{ teacher.name }}</option>
+                        </select>
+                        <section>
+                            <label for="toggleLabel">Điểm trung binh tích lũy</label>
+                            <input type="text" placeholder="Điểm trung bình tích lũy của bạn" class="custom-input"
+                                id="mark" name="mark" [(ngModel)]="mark">
+                        </section>
+
+                    </div>
+                    <button (click)="registerTeacher()">Gửi</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <div>
+        <div class="report_calendar">
+            <h1>Thông tin giảng viên tiếp nhận sinh viên làm luận văn</h1>
+            <span>_______________</span>
+            <!-- <section class="custom">
+                <label for="">
+                    <h4>Tuần</h4>
+                </label>
+                <input type="text" class="custom-input">
+            </section> -->
+            <table>
+                <tr>
+                    <th>STT</th>
+                    <th>Mã giảng viên</th>
+                    <th>Họ tên giảng viên</th>
+                    <th>Số lượng nhận sinh viên</th>
+                    <th>Đề tài mẫu</th>
+                    <!-- <th></th> -->
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>T12345</td>
+                    <td>TS. Thái Minh Tuấn</td>
+                    <td>20</td>
+                    <td>sdchsdh</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>T12345</td>
+                    <td>TS. Thái Minh Tuấn</td>
+                    <td>20</td>
+                    <td>sdchsdh</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>T12345</td>
+                    <td>TS. Thái Minh Tuấn</td>
+                    <td>20</td>
+                    <td>sdchsdh</td>
+                </tr>
+                <!-- Thêm dữ liệu cho các hàng khác của bảng tại đây -->
+            </table>
+        </div>
+    </div>
+</body>
+<app-footer></app-footer>

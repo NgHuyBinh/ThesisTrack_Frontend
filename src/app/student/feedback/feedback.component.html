@@ -1,0 +1,93 @@
+<app-header></app-header>
+<!-- đăng ký đề tài -->
+
+<body>
+    <div class=topp>
+        <div class="info">
+            <div class="header">
+                <h3 style="font-weight: bold">
+                    Thông tin sinh viên
+                </h3>
+            </div>
+            <table style="background-color: white" *ngIf="student">
+                <tr>
+                    <td class="title">Mã số sinh viên:</td>
+                    <td>{{ student.numberStudent }}</td>
+                </tr>
+                <tr>
+                    <td class="title">Tên:</td>
+                    <td>{{ student.name }}</td>
+                </tr>
+                <tr>
+                    <td class="title">Ngày sinh:</td>
+                    <td>{{ student.birthday }}</td>
+                </tr>
+                <tr>
+                    <td class="title">Giới tính:</td>
+                    <td>{{ student.gender === 1 ? 'Nam' : 'Nữ' }}</td>
+                </tr>
+                <tr>
+                    <td class="title">Lớp học:</td>
+                    <td>{{ student.classroom }}</td>
+                </tr>
+                <tr>
+                    <td class="title">Ngành:</td>
+                    <td>{{ student.major }}</td>
+                </tr>
+                <tr>
+                    <td>Giảng viên hướng dẫn: </td>
+                    <td>.....</td>
+                </tr>
+                <tr>
+                    <td>Đề tài: </td>
+                    <td>...</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- form gửi phản hồi  -->
+        <div class="register_topic">
+            <form>
+                <h4>Phản hồi</h4>
+                <div class="semester">
+                    <div *ngIf="student">
+                        <label for="toggleLabel">Mã sinh viên</label>
+                        <input type="text" [value]="student.numberStudent" disabled>
+                        <label for="toggleLabel">Họ tên sinh viên: </label>
+                        <input type="text" [value]="student.name" disabled>
+                    </div>
+                    <div>
+                        <label for="toggleLabel">Nội dung phản hồi</label>
+                        <input type="text" placeholder="Nhập nội dung" class="custom-input">
+                    </div>
+                    <button>Gửi</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- <div class="register_topic">
+        <form>
+            <h4>Phản hồi sinh viên</h4>
+            <div class="semester">
+                <div>
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div>
+                    <label for="email">Your Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="message">Your Feedback:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                </div>
+
+
+                <button>Gửi</button>
+            </div>
+        </form>
+    </div> -->
+</body>
+<app-footer></app-footer>
