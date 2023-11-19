@@ -18,7 +18,11 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { RegisterTeacherComponent } from './student/register-teacher/register-teacher.component';
 import { FeedbackComponent } from './student/feedback/feedback.component';
+import { MarkstudentDialogComponent } from "./student/markstudent-dialog/markstudent-dialog.component";
 
+import { MatIconModule } from '@angular/material/icon';
+import { InfomarkDialogComponent } from './student/infomark-dialog/infomark-dialog.component';
+// import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 
 @NgModule({
   declarations: [
@@ -35,7 +39,8 @@ import { FeedbackComponent } from './student/feedback/feedback.component';
     AssessComponent, 
     ReportCalendarComponent, 
     RegisterTopicComponent, 
-    RegisterTeacherComponent, FeedbackComponent,
+    RegisterTeacherComponent, FeedbackComponent, 
+    MarkstudentDialogComponent, InfomarkDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,6 +48,8 @@ import { FeedbackComponent } from './student/feedback/feedback.component';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
+    // NgxExtendedPdfViewerModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

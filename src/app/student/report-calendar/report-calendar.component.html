@@ -51,51 +51,24 @@
                 <tr>
                     <th>STT</th>
                     <th>Mã nhóm báo cáo</th>
-                    <th>Môn học phần</th>
-                    <th>Tuần</th>
-                    <th>Thứ</th>
-                    <th>Tiết</th>
+                    <th>Giảng viên hướng dẫn</th>
+                    <th>Lịch báo cáo</th>
+                    <th>Danh sách sinh viên</th>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>BC001</td>
-                    <td>Báo cáo luận văn tốt nghiệp - CNTT - Nhóm 1</td>
-                    <td>Tuần 18</td>
-                    <td>Thứ 7</td>
-                    <td>Tiết 123</td>
+                <tr *ngFor="let tcs of teachingSchedules; let i = index">
+                    <td>{{ i + 1}}</td>
+                    <td>{{ tcs.groupStudent.code}}</td>
+                    <td>{{ tcs.groupStudent.teacher.name}}</td>
+                    <td>
+                        Phòng {{ tcs.calender.room}},
+                        Tuần {{ tcs.calender.week}},
+                        Thứ {{ tcs.calender.thu}},
+                        Ngày {{ tcs.calender.day}},
+                        {{ tcs.calender.period}}
+                    </td>
+                    <td>Danh sách sinh viên</td>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>BC001</td>
-                    <td>Báo cáo luận văn tốt nghiệp - CNTT - Nhóm 1</td>
-                    <td>Tuần 18</td>
-                    <td>Thứ 7</td>
-                    <td>Tiết 123</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>BC001</td>
-                    <td>Báo cáo luận văn tốt nghiệp - CNTT - Nhóm 1</td>
-                    <td>Tuần 18</td>
-                    <td>Thứ 7</td>
-                    <td>Tiết 123</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>BC001</td>
-                    <td>Báo cáo luận văn tốt nghiệp - CNTT - Nhóm 1</td>
-                    <td>Tuần 18</td>
-                    <td>Thứ 7</td>
-                    <td>Tiết 123</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>BC001</td>
-                    <td>Báo cáo luận văn tốt nghiệp - CNTT - Nhóm 1</td>
-                    <td>Tuần 18</td>
-                    <td>Thứ 7</td>
-                    <td>Tiết 123</td>
-                </tr>
+
                 <!-- Thêm dữ liệu cho các hàng khác của bảng tại đây -->
             </table>
         </div>

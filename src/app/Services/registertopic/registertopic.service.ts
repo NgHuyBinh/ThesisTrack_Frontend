@@ -29,6 +29,9 @@ export class RegisterTopicService {
     const url = this.getFullUrl("api/v1/registertopic");
     return this.http.post<any>(url, registerTopicData);
   }
+  getRegisterByStudentId(id: number) : Observable<RegisterTopic> {
+    return this.http.get<RegisterTopic>(this.getFullUrl(`api/v1/registertopic/student/${id}`));
+  }
 
 
 

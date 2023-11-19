@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from 'express';
 import { Observable } from 'rxjs';
+import { RegisterTeacher } from 'src/app/Models/registerteacher/registerteacher';
 import { AppConfig } from 'src/app/config/AppConfig';
 
 @Injectable({
@@ -21,5 +22,8 @@ export class RegisterTeacherService {
   regiterTeaccher(regiterTeacherData: any) : Observable<void> {
     const url = this.getFullUrl("api/v1/registerteacher/add");
     return this.http.post<void>(url, regiterTeacherData);
+  }
+  getRegisterByStudentId(id: number) : Observable<RegisterTeacher[]> {
+    return this.http.get<RegisterTeacher[]>(this.getFullUrl(`api/v1/registerteacher/student/${id}`));
   }
 }

@@ -14,7 +14,7 @@ import { throwError } from 'rxjs';
 })
 export class TeacherService {
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) { }
 
   //lấy full đường dẫn
   private getFullUrl(endpoint: string): string {
@@ -22,13 +22,23 @@ export class TeacherService {
     return `${AppConfig.baseUrl}/${endpoint}`;
   }
 
-
+  getTeacherById(id: number) : Observable<Teacher> {
+    return this.http.get<Teacher>(this.getFullUrl(`api/v1/teacher/${id}`));
+  }
   // getTeachersByFaculty(facultyId: number): Observable<Teacher[]> {
   //   return this.http.get<Teacher[]>(
   //     this.getFullUrl(`api/v1/teacher/faculty/${facultyId}`)
   //   );
   // }
-
+  getTeacherByNoTeacher(noTeacher: string): Observable<Teacher> {
+    const url = `${AppConfig.baseUrl}/api/v1/teacher?numberTeacher=${noTeacher}`;
+    return this.http.get<Teacher>(url);
+  }
+  getAllTeacher(id: number) :Observable<Teacher[]> {
+    return this.http.get<Teacher[]>(
+      this.getFullUrl(`api/v1/teacher/all/faculty/${id}`)
+    );
+  }
 
 
 
@@ -44,5 +54,9 @@ export class TeacherService {
       })
     );
   }
-  
+
+  // getTeachersByFaculty(facultyId: number): Observable<any[]> {
+  //   return this.http.get<any[]>(`${AppConfig.baseUrl}/api/v1/teachers/faculty/${facultyId}`);
+  // }
+
 }

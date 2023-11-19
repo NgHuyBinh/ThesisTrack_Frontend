@@ -2,7 +2,7 @@ import { Faculty } from "../faculty/faculty";
 import { Teacher } from "../teacher/teacher";
 
 export class Student {
-  [x: string]: any;
+  
   constructor(
     public id: number,
     public numberStudent: string,
@@ -15,7 +15,6 @@ export class Student {
     public gender: number,
     public classroom: string,
     public schoolyear: string,
-    public faculty: Faculty,
-    public teacher: Teacher,
+    public faculty: Faculty
   ) {}
 }

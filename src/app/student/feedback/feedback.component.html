@@ -46,7 +46,7 @@
         </div>
 
         <!-- form gửi phản hồi  -->
-        <div class="register_topic">
+        <!-- <div class="register_topic">
             <form>
                 <h4>Phản hồi</h4>
                 <div class="semester">
@@ -63,7 +63,26 @@
                     <button>Gửi</button>
                 </div>
             </form>
+        </div> -->
+        <div class="register_topic">
+            <form (ngSubmit)="onSubmit()">
+                <h4>Phản hồi</h4>
+                <div class="semester">
+                    <div *ngIf="student">
+                        <label for="toggleLabel">Mã sinh viên</label>
+                        <input type="text" [value]="student.numberStudent" disabled>
+                        <label for="toggleLabel">Họ tên sinh viên: </label>
+                        <input type="text" [value]="student.name" disabled>
+                    </div>
+                    <div>
+                        <label for="toggleLabel">Nội dung phản hồi</label>
+                        <input type="text" placeholder="Nhập nội dung" class="custom-input" [(ngModel)]="feedbackContent" name="feedbackContent">
+                    </div>
+                    <button type="submit">Gửi</button>
+                </div>
+            </form>
         </div>
+        
 
     </div>
 

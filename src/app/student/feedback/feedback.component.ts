@@ -4,6 +4,7 @@ import { forkJoin } from 'rxjs';
 import { Student } from 'src/app/Models/student/student';
 import { Teacher } from 'src/app/Models/teacher/teacher';
 import { AuthService } from 'src/app/Services/auth/auth.service';
+import { FeedbackService } from 'src/app/Services/feedback/feedback.service';
 import { RegisterTeacherService } from 'src/app/Services/registerteacher/registerteacher.service';
 import { RegisterTopicService } from 'src/app/Services/registertopic/registertopic.service';
 import { StudentService } from 'src/app/Services/student/student.service';
@@ -27,16 +28,16 @@ export class FeedbackComponent {
   teachers: Teacher[] = [];
 
   constructor(
-    private fb: FormBuilder, 
+    private fb: FormBuilder,
     private registerTeacherService: RegisterTeacherService,
     private registerTopicService: RegisterTopicService,
     private authService: AuthService,
     private studentService: StudentService,
     private teacherService: TeacherService,
+    private feedbackService: FeedbackService,
   ) {
     this.form = fb.group({
       teacher: ['', [Validators.required]],
-      mark:   ['', [Validators.required]],
     });
   }
 
@@ -46,7 +47,6 @@ export class FeedbackComponent {
       this.studentService.getStudentByNoStudent(this.authService.getUsername()),
     ]).subscribe(([student]) => {
       this.student = student;
-      this.teacher = this.student.teacher;
       this.teachers = this.teachers;
     });
   }
@@ -66,16 +66,37 @@ export class FeedbackComponent {
     });
   }
 
-  loadTeachersByFaculty(facultyId: number): void {
-    this.teacherService.getTeachersByFaculty(facultyId)
-      .subscribe(
-        (data) => {
-          this.teachers = data;
-        },
-        (error) => {
-          console.error('Không thể lấy danh sách giảng viên:', error);
-        }
-      );
+  // subFeedback() {
+  //   if(this.form.value.)
+  // }
+  feedbackContent!: string;
+  // onSubmit() {
+  //   // Log the data to the console or perform any other actions here
+  //   console.log('Student:', this.student);
+  //   console.log('Feedback Content:', this.feedbackContent);
+  // }
+  onSubmit() {
+    if (this.form.valid) {
+      return;
+    }
+
+    const feedbackData = {
+      student: {
+        id: this.student.id,
+      },
+
+      note: this.feedbackContent,
+    };
+    console.log(feedbackData);
+
+    this.feedbackService.feedback(feedbackData).subscribe(
+      (response) => {
+        Swal.fire('Thành công', 'Bạn đã gửi phản hồi thành công!', 'success');
+      },
+      (error) => {
+        Swal.fire('Thất bại', 'Bạn đã gửi phản hồi trước đó rồi.', 'error');
+      }
+    );
   }
 
 }

@@ -37,12 +37,27 @@
                     <td>{{ student.major }}</td>
                 </tr>
                 <tr>
-                    <td>Giảng viên hướng dẫn: </td>
-                    <td>.....</td>
+                    <td>Đề tài: </td>
+                    <td>Hệ thống thực hiện luận văn tốt nghiệp</td>
                 </tr>
                 <tr>
-                    <td>Đề tài: </td>
-                    <td>...</td>
+                    <td>Kết quả: </td>
+                    <td></td>
+
+
+                </tr>
+                <tr>
+                    <td>
+                        <a style="color: rgb(247, 183, 65); font-weight: bold;">Xem chi tiết</a>
+                    </td>
+                    <td>
+                        <select>
+                            <option value="1">Biên bản hội đồng chấm luận văn</option>
+                            <option value="2">Phiếu chấm điểm của Chủ Tịch hội đồng</option>
+                            <option value="3">Phiếu chấm điểm của Hội đồng phản biện</option>
+                            <option value="4">Phiếu chấm điểm của Thư ký</option>
+                        </select>
+                    </td>
                 </tr>
             </table>
         </div>
@@ -50,7 +65,7 @@
         <!-- Sử dụng form-> formGroup -> có dữ liệu -> onSubmit -->
 
         <div class="register_topic">
-            <form >
+            <form>
                 <h4>Đăng ký giảng viên hướng dẫn</h4>
                 <div *ngIf="semester">
                     <label for="">Học kỳ {{semester.semester}}, năm học: {{semester.schoolYear}}</label>
@@ -79,50 +94,39 @@
         </div>
 
     </div>
+    <div >
 
-    <div>
-        <div class="report_calendar">
-            <h1>Thông tin giảng viên tiếp nhận sinh viên làm luận văn</h1>
-            <span>_______________</span>
-            <!-- <section class="custom">
-                <label for="">
-                    <h4>Tuần</h4>
-                </label>
-                <input type="text" class="custom-input">
-            </section> -->
-            <table>
-                <tr>
-                    <th>STT</th>
-                    <th>Mã giảng viên</th>
-                    <th>Họ tên giảng viên</th>
-                    <th>Số lượng nhận sinh viên</th>
-                    <th>Đề tài mẫu</th>
-                    <!-- <th></th> -->
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>T12345</td>
-                    <td>TS. Thái Minh Tuấn</td>
-                    <td>20</td>
-                    <td>sdchsdh</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>T12345</td>
-                    <td>TS. Thái Minh Tuấn</td>
-                    <td>20</td>
-                    <td>sdchsdh</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>T12345</td>
-                    <td>TS. Thái Minh Tuấn</td>
-                    <td>20</td>
-                    <td>sdchsdh</td>
-                </tr>
-                <!-- Thêm dữ liệu cho các hàng khác của bảng tại đây -->
-            </table>
+        <div class="register_topic">
+            <h4>Lịch sử đăng ký giảng viên</h4>
+            <div class="text-muted">
+                Lưu ý: Bạn có thể đăng ký nhiều giảng viên khi chờ xác nhận. Nếu có 1 giảng viên nào đó xác nhận, thì các đăng ký khác sẽ bị hủy
+            </div>
+            <table style="background-color: white">
+                <thead>
+                    <th>Giảng viên</th>
+                    <th>Khoa</th>
+                    <th>Trạng thái</th>
+                    <th>Phản hồi từ GV</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let r of register;index as i">
+                        <td>{{r.teacher.name}}</td>
+                        <td>{{r.teacher.faculty.name}}</td>
+                        <td>
+                            <div *ngIf="r.status == 1">Đã chập nhận</div>
+                            <div *ngIf="r.status == 0">Chờ xác nhận</div>
+                            <div *ngIf="r.status == 2">Đã bị hủy</div>
+                        </td>
+                        <td>{{r.note}}</td>
+                    </tr>
+                </tbody>
+                
+            </table> 
         </div>
+
     </div>
+
+
+    
 </body>
 <app-footer></app-footer>

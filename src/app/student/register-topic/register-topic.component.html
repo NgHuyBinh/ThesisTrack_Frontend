@@ -38,18 +38,32 @@
                 </tr>
                 <tr>
                     <td>Giảng viên hướng dẫn: </td>
-                    <td>.....</td>
+                    <td><div *ngIf="teacher">{{teacher.name}}</div>
+                        <div *ngIf="!teacher">Chưa có</div>
+                    </td>
                 </tr>
-                <tr>
-                    <td>Đề tài: </td>
-                    <td>...</td>
+                <tr *ngIf="registerT">
+                    <td class="title">Đề tài: 
+                     </td>
+                    <td *ngIf="registerT.topicName !=''">{{registerT.topicName}}</td>
+                    <td *ngIf="registerT.topicName==''">
+                        {{registerT.topic.name}}</td>
                 </tr>
+                <tr *ngIf="registerT">
+                    <td>Trạng thái</td>
+                    <td *ngIf="registerT.status == 0">Chờ xác nhận</td>
+                    <td *ngIf="registerT.status == 1">Đã duyệt</td>
+                    <td *ngIf="registerT.status == 2">Bị hủy</td>
+                    
+                </tr>
+                <tr *ngIf="registerT && registerT.status == 2">
+                <td>{{registerT.reason}}</td></tr>
             </table>
         </div>
 
         <!-- Sử dụng form-> formGroup -> có dữ liệu -> onSubmit -->
 
-        <div class="register_topic">
+        <div class="register_topic" *ngIf="teacher;else noData">
             <form [formGroup]="form">
                 <div class="semester">
                     <div *ngIf="teacher">
@@ -79,55 +93,44 @@
                 </div>
             </form>
         </div>
+        <ng-template #noData>
+            <div class="text-center mt-5">
+                Bạn chưa có giảng viên hướng dẫn. Vui lòng quay lại sau!<br>
+                Đăng ký giảng viên hướng dẫn <span style="color: blue;" routerLink="/register_teacher">tại đây</span> 
+            </div>
+            
+        </ng-template>
 
 
 
     </div>
 
-    <div>
+    <!--<div>
         <div class="report_calendar">
             <h1>Bảng đề tài mẫu của các giảng viên</h1>
-            <h5>Năm học: | Học kỳ: </h5>
+            <h5>Năm học: 1 | Học kỳ: 2023 - 2024</h5>
             <span>_______________</span>
-            <!-- <section class="custom">
-              <label for="">
-                  <h4>Tuần</h4>
-              </label>
-              <input type="text" class="custom-input">
-          </section> -->
             <table>
                 <tr>
                     <th>STT</th>
                     <th>Mã giảng viên</th>
                     <th>Họ tên giảng viên</th>
-                    <th>Số lượng nhận sinh viên</th>
+                    <th>Khoa</th>
                     <th>Đề tài mẫu</th>
-                    <!-- <th></th> -->
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>T12345</td>
-                    <td>TS. Thái Minh Tuấn</td>
-                    <td>20</td>
-                    <td>sdchsdh</td>
+                <tr *ngFor="let tc of teacherTopic;index as i">
+                    <td>{{i+1}}</td>
+                    <td>{{tc.numberTeacher}}</td>
+                    <td>{{tc.name}}</td>
+                    <td>{{tc.faculty.name}}</td>
+                    <td>
+                        <select >
+                            <option *ngFor="let t of listTopic1" [value]="tc.id">{{ t.name }}</option>
+                        </select>
+                    </td>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>T12345</td>
-                    <td>TS. Thái Minh Tuấn</td>
-                    <td>20</td>
-                    <td>sdchsdh</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>T12345</td>
-                    <td>TS. Thái Minh Tuấn</td>
-                    <td>20</td>
-                    <td>sdchsdh</td>
-                </tr>
-                <!-- Thêm dữ liệu cho các hàng khác của bảng tại đây -->
             </table>
         </div>
-    </div>
+    </div>-->
 </body>
 <app-footer></app-footer>

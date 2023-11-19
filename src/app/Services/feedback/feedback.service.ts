@@ -1,32 +1,25 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Topic } from 'src/app/Models/topic/topic';
+import { Observable } from 'rxjs';
 import { AppConfig } from 'src/app/config/AppConfig';
 
-import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class TopicService {
-
+export class FeedbackService {
   constructor(private http: HttpClient, private router: Router) {}
+  listQuantity: number[] = [];
 
   //lấy full đường dẫn
   private getFullUrl(endpoint: string): string {
     console.log(AppConfig.baseUrl)
     return `${AppConfig.baseUrl}/${endpoint}`;
   }
-  
-  getAllTopic(teacherId: number): Observable<Topic[]>{
-    return this.http.get<Topic[]>(
-      this.getFullUrl(`api/v1/topics/teacher/${teacherId}`)
-    );
+
+  feedback(feedbackData: any) : Observable<any> {
+    const url = this.getFullUrl("api/v1/feedbacks/add");
+    return this.http.post<any>(url, feedbackData);
   }
 
-  getAllTopic1(idTeacher: number): Observable<Topic[]>{
-    return this.http.get<Topic[]>(
-      this.getFullUrl(`api/v1/topics/teacher/${idTeacher}`)
-    );
-  }
 }

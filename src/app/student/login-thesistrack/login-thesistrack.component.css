@@ -33,6 +33,7 @@ body
     background-position: center;
     background-size: cover;
     /* filter: blur(10px); */
+    font-family: Arial, sans-serif; 
 }
 .login
 {
@@ -140,4 +141,11 @@ button:active
     max-width: 200px;
     height: auto;
     
+}
+
+h2 {
+    font-size: 45px;
+    font-weight: 700;
+    color: #fff;
+    margin-top: 10px;
 }
