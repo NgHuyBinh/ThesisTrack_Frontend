@@ -123,6 +123,7 @@ export class RegisterTeacherComponent implements OnInit {
       }
     })
   }
+  
   getRegisterByStudentId() {
     this.registerTeacherService.getRegisterByStudentId(this.student!.id).subscribe({
       next: (response: RegisterTeacher[]) => {

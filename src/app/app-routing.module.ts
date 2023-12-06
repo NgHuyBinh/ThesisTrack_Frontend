@@ -14,6 +14,8 @@ import { RegisterTeacherComponent } from './student/register-teacher/register-te
 import { FeedbackComponent } from './student/feedback/feedback.component';
 import { MarkstudentDialogComponent } from './student/markstudent-dialog/markstudent-dialog.component';
 import { InfomarkDialogComponent } from './student/infomark-dialog/infomark-dialog.component';
+import { Markstudent1Component } from './student/markstudent1/markstudent1.component';
+import { Markstudent2Component } from './student/markstudent2/markstudent2.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -26,10 +28,10 @@ const routes: Routes = [
   { path: 'report_calendar', component: ReportCalendarComponent },
   { path: 'register_topic', component: RegisterTopicComponent },
   { path: 'feedback', component: FeedbackComponent },
-
-  // 2 dialog xem kết quả của sinh viên 
-  { path: 'markstudent_dialog', component: MarkstudentDialogComponent },
-  { path: 'infomark_dialog', component: InfomarkDialogComponent },
+  { path: 'mark', component: MarkstudentDialogComponent},
+  { path: 'infomark', component: InfomarkDialogComponent},
+  { path: 'markstudent1', component: Markstudent1Component},
+  { path: 'markstudent2', component: Markstudent2Component},
 
   { path: '**', component: NotFoundComponent },
 ];

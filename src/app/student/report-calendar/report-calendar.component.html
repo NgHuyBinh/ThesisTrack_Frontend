@@ -1,45 +1,14 @@
 <app-header></app-header>
 
-<body>
-    <!-- <div class="report_calendar">
-        <div class="semester">
-            <label for="">Khoa: </label>
-            <select id="">
-                <option value="1">Khoa Công nghệ thông tin</option>
-                <option value="2">Khoa Truyền thông đa phương tiện</option>
-                <option value="3">Khoa Khoa học máy tính</option>
-                <option value="4">Khoa Công nghệ phần mềm</option>
-                <option value="5">Khoa Hệ thống thông tin</option>
-                <option value="6">Khoa Mạng máy tính và truyền thông dữ liệu</option>
-            </select>
-            <label for="year">Năm học:</label>
-            <select name="" id="">
-                <option value="1">Năm 2022 - 2023</option>
-                <option value="2">Năm 2023 - 2024</option>
-            </select>
-            <label for="">Phòng: </label>
-            <select id="">
-                <option value="1">LT101</option>
-                <option value="2">LT102</option>
-                <option value="3">LT103</option>
-            </select>
-            <button class="button_tim">Tìm</button>
-
-            <div class="time">
-                <label for="">Ngày: </label>
-                <label for="">Giờ bắt đầu: </label>
-                <label for="">Giờ kết thúc: </label>
-            </div>
-        </div>
-
-    </div> -->
+<div class="body">
 
     <div class="topp">
         <div class="report_calendar">
-            <h1>Lịch báo cáo luận văn</h1>
+            <h1>LỊCH BÁO CÁO LUẬN VĂN TỐT NGHIỆP</h1>
             <section>
                 <span>__________________</span>
-                <p>Học kỳ: | Năm học: </p>
+                <!-- <p *ngFor="let tc of semesters">Học kỳ: {{ tc.semester.semester }} | Năm học: {{ tc.semester.schoolYear }}</p> -->
+                <p><b>Học kỳ:</b> 1 | <b>Năm học: </b>2023-2024</p>
             </section>
 
             <section>
@@ -50,15 +19,16 @@
             <table>
                 <tr>
                     <th>STT</th>
-                    <th>Mã nhóm báo cáo</th>
+                    <th>MSGV</th>
                     <th>Giảng viên hướng dẫn</th>
                     <th>Lịch báo cáo</th>
-                    <th>Danh sách sinh viên</th>
+                    <th>DS sinh viên</th>
+                    <th>Giảng viên hội đồng</th>
                 </tr>
                 <tr *ngFor="let tcs of teachingSchedules; let i = index">
                     <td>{{ i + 1}}</td>
-                    <td>{{ tcs.groupStudent.code}}</td>
-                    <td>{{ tcs.groupStudent.teacher.name}}</td>
+                    <td>{{ tcs.addGroupStudent.groupStudent.teacher.numberTeacher}} </td>
+                    <td>{{ tcs.addGroupStudent.groupStudent.teacher.name}} </td>
                     <td>
                         Phòng {{ tcs.calender.room}},
                         Tuần {{ tcs.calender.week}},
@@ -66,12 +36,18 @@
                         Ngày {{ tcs.calender.day}},
                         {{ tcs.calender.period}}
                     </td>
-                    <td>Danh sách sinh viên</td>
+                    <td>{{ tcs.addGroupStudent.student.name}}</td>
+                    <td style="font-weight: 100; ">
+                        <p>TS. Thái Minh Tuân</p>
+                        <p>TS. Phạm Thế Phi</p>
+                        <p>Ths. Nguyễn Minh Trung</p>
+                    </td>
                 </tr>
 
                 <!-- Thêm dữ liệu cho các hàng khác của bảng tại đây -->
             </table>
+            <p *ngFor="let agt of addGroupStudents" >{{ agt.student.numberStudent }}, {{ agt.student.name}}</p> 
         </div>
     </div>
-</body>
+</div>
 <app-footer></app-footer>

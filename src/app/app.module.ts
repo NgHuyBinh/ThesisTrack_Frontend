@@ -22,6 +22,8 @@ import { MarkstudentDialogComponent } from "./student/markstudent-dialog/markstu
 
 import { MatIconModule } from '@angular/material/icon';
 import { InfomarkDialogComponent } from './student/infomark-dialog/infomark-dialog.component';
+import { Markstudent1Component } from './student/markstudent1/markstudent1.component';
+import { Markstudent2Component } from './student/markstudent2/markstudent2.component';
 // import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 
 @NgModule({
@@ -40,7 +42,7 @@ import { InfomarkDialogComponent } from './student/infomark-dialog/infomark-dial
     ReportCalendarComponent, 
     RegisterTopicComponent, 
     RegisterTeacherComponent, FeedbackComponent, 
-    MarkstudentDialogComponent, InfomarkDialogComponent,
+    MarkstudentDialogComponent, InfomarkDialogComponent, Markstudent1Component, Markstudent2Component,
   ],
   imports: [
     BrowserModule,

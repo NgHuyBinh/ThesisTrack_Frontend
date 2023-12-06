@@ -105,32 +105,5 @@
 
     </div>
 
-    <!--<div>
-        <div class="report_calendar">
-            <h1>Bảng đề tài mẫu của các giảng viên</h1>
-            <h5>Năm học: 1 | Học kỳ: 2023 - 2024</h5>
-            <span>_______________</span>
-            <table>
-                <tr>
-                    <th>STT</th>
-                    <th>Mã giảng viên</th>
-                    <th>Họ tên giảng viên</th>
-                    <th>Khoa</th>
-                    <th>Đề tài mẫu</th>
-                </tr>
-                <tr *ngFor="let tc of teacherTopic;index as i">
-                    <td>{{i+1}}</td>
-                    <td>{{tc.numberTeacher}}</td>
-                    <td>{{tc.name}}</td>
-                    <td>{{tc.faculty.name}}</td>
-                    <td>
-                        <select >
-                            <option *ngFor="let t of listTopic1" [value]="tc.id">{{ t.name }}</option>
-                        </select>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </div>-->
 </body>
 <app-footer></app-footer>

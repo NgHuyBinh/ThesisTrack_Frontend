@@ -1,7 +1,7 @@
 import { publishFacade } from "@angular/compiler";
 import { Calender } from "../calender/calender";
 import { Semester } from "../semester/semester";
-import { Groupstudent } from "../groupstudent/groupstudent";
+import { Addgroupstudent } from "../addgroupstudent/addgroupstudent";
 export class Teachingschedule {
     constructor(
         public id: number,
@@ -10,7 +10,7 @@ export class Teachingschedule {
 
         public semester: Semester,
 
-        public groupStudent: Groupstudent,
+        public addGroupStudent: Addgroupstudent,
 
         public status: number,
 

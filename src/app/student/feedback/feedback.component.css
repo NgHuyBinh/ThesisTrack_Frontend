@@ -1,4 +1,4 @@
-body {
+.body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
@@ -65,7 +65,9 @@ span {
     align-items: center;
 
 }
-
+.infom {
+    margin-bottom: 10px;
+}
 
 button {
     background-color: rgb(247, 183, 65);
@@ -222,4 +224,12 @@ td {
     border-radius: 10px;
     /* margin-top: 150px; */
     margin-bottom: 50px;
+}
+
+.gray-background {
+    background-color: #eba947; /* Chọn màu xám mong muốn */
+    color: #000000; /* Chọn màu chữ trắng hoặc màu tương phản để đảm bảo độ đọc được tốt */
+}
+.gray-background:hover {
+    background-color: #444343;
 }

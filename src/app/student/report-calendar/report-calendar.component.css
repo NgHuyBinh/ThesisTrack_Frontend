@@ -1,4 +1,4 @@
-body {
+.body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
@@ -136,11 +136,12 @@ tr:nth-child(even) {
 h2,
 p {
     margin-top: 10px;
-    text-align: center;
+    /* text-align: center; */
     /* color: #0056b3; */
 
-    color: rgb(243, 162, 12);
-    font-weight: bold;
+    color: black;
+    /* color: rgb(243, 162, 12); */
+    /* font-weight: bold; */
 }
 .custom-input {
     width: 300px;
@@ -148,7 +149,4 @@ p {
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-}
-p{
-    color: black;
 }

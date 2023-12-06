@@ -94,7 +94,7 @@ export class FeedbackComponent {
         Swal.fire('Thành công', 'Bạn đã gửi phản hồi thành công!', 'success');
       },
       (error) => {
-        Swal.fire('Thất bại', 'Bạn đã gửi phản hồi trước đó rồi.', 'error');
+        Swal.fire('Thất bại', 'Có lỗi gửi phản hồi. Hãy thử lại sau.', 'error');
       }
     );
   }
